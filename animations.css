@@ -1,0 +1,262 @@
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes bubbleFloat {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+@keyframes steam {
+    0% {
+        height: 30px;
+        opacity: 1;
+    }
+    100% {
+        height: 50px;
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation Classes */
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.fade-in {
+    animation-name: fadeIn;
+}
+
+.fade-in-up {
+    animation-name: fadeInUp;
+}
+
+.slide-down {
+    animation-name: slideDown;
+}
+
+.slide-in-left {
+    animation-name: slideInLeft;
+}
+
+.slide-in-right {
+    animation-name: slideInRight;
+}
+
+.bounce {
+    animation-name: bounce;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.rotate {
+    animation-name: rotate;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+/* Staggered Animations */
+.stagger-animation > * {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-animation > *:nth-child(6) { animation-delay: 0.6s; }
+.stagger-animation > *:nth-child(7) { animation-delay: 0.7s; }
+.stagger-animation > *:nth-child(8) { animation-delay: 0.8s; }
+
+/* Hover Animations */
+.hover-grow {
+    transition: transform 0.3s ease;
+}
+
+.hover-grow:hover {
+    transform: scale(1.05);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hover-rotate {
+    transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.hover-color {
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Loading Bar */
+.loading-bar {
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    background-size: 200% 100%;
+    animation: loadingBar 1.5s infinite linear;
+    border-radius: 2px;
+}
+
+@keyframes loadingBar {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Coffee Bean Animation */
+.coffee-bean {
+    width: 20px;
+    height: 10px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    animation: beanFall 3s linear infinite;
+}
+
+@keyframes beanFall {
+    0% {
+        top: -50px;
+        opacity: 0;
+        transform: rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        top: 100vh;
+        opacity: 0;
+        transform: rotate(360deg);
+    }
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-color);
+    animation: confettiFall 5s linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        top: -100px;
+        transform: rotate(0deg);
+    }
+    100% {
+        top: 100vh;
+        transform: rotate(360deg);
+    }
+}
